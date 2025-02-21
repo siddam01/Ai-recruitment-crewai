@@ -1,4 +1,4 @@
-# Travel Crew Backend API Documentation (Railway Deployment) - Final
+# Travel Crew Documentation
 
 This document provides a comprehensive guide for setting up, deploying, and using the Travel Crew backend API. This API is built using Python, FastAPI, LangChain, and LlamaIndex, and is designed to power intelligent trip planning functionalities. The API is deployed on Railway.app for ease of use and scalability.
 
