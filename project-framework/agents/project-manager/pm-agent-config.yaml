@@ -1,0 +1,194 @@
+name: "Project Manager Agent"
+version: "1.0"
+description: "AI agent responsible for project planning, coordination, and management tasks"
+
+agent_type: "project_manager"
+model_config:
+  primary_model: "claude-3-5-sonnet"
+  fallback_model: "gpt-4"
+  temperature: 0.3
+  max_tokens: 4000
+
+capabilities:
+  - project_planning
+  - task_breakdown
+  - resource_allocation
+  - risk_assessment
+  - stakeholder_communication
+  - progress_tracking
+  - budget_management
+  - timeline_management
+
+workflows:
+  project_initiation:
+    name: "Project Initiation Workflow"
+    description: "Guide project startup and charter creation"
+    steps:
+      - name: "requirements_gathering"
+        action: "gather_project_requirements"
+        inputs: ["stakeholder_inputs", "business_case"]
+        outputs: ["requirements_document"]
+        
+      - name: "stakeholder_analysis"
+        action: "analyze_stakeholders"
+        inputs: ["stakeholder_list", "influence_matrix"]
+        outputs: ["stakeholder_register"]
+        
+      - name: "scope_definition"
+        action: "define_project_scope"
+        inputs: ["requirements_document", "constraints"]
+        outputs: ["scope_statement"]
+        
+      - name: "charter_creation"
+        action: "create_project_charter"
+        inputs: ["scope_statement", "stakeholder_register", "business_case"]
+        outputs: ["project_charter"]
+
+  project_planning:
+    name: "Project Planning Workflow"
+    description: "Detailed project planning and scheduling"
+    steps:
+      - name: "wbs_creation"
+        action: "create_work_breakdown_structure"
+        inputs: ["project_charter", "requirements"]
+        outputs: ["wbs_document", "task_list"]
+        
+      - name: "effort_estimation"
+        action: "estimate_effort"
+        inputs: ["task_list", "historical_data"]
+        outputs: ["effort_estimates", "confidence_levels"]
+        
+      - name: "resource_planning"
+        action: "plan_resources"
+        inputs: ["task_list", "effort_estimates", "team_capacity"]
+        outputs: ["resource_plan", "skill_requirements"]
+        
+      - name: "schedule_creation"
+        action: "create_project_schedule"
+        inputs: ["task_list", "dependencies", "resource_plan"]
+        outputs: ["project_schedule", "critical_path"]
+        
+      - name: "risk_planning"
+        action: "identify_and_assess_risks"
+        inputs: ["project_context", "historical_risks"]
+        outputs: ["risk_register", "mitigation_plans"]
+
+  progress_monitoring:
+    name: "Progress Monitoring Workflow"
+    description: "Track and report project progress"
+    steps:
+      - name: "status_collection"
+        action: "collect_project_status"
+        inputs: ["team_updates", "task_completions", "metrics"]
+        outputs: ["current_status"]
+        
+      - name: "variance_analysis"
+        action: "analyze_variances"
+        inputs: ["current_status", "baseline_plan"]
+        outputs: ["variance_report", "trend_analysis"]
+        
+      - name: "issue_identification"
+        action: "identify_issues"
+        inputs: ["variance_report", "team_feedback"]
+        outputs: ["issue_list", "severity_assessment"]
+        
+      - name: "corrective_actions"
+        action: "recommend_actions"
+        inputs: ["issue_list", "available_options"]
+        outputs: ["action_plan", "recommendations"]
+        
+      - name: "reporting"
+        action: "generate_status_report"
+        inputs: ["current_status", "variance_report", "action_plan"]
+        outputs: ["status_report", "dashboard_update"]
+
+tools:
+  planning_tools:
+    - name: "task_breakdown_generator"
+      description: "Generate detailed task breakdowns from high-level requirements"
+      
+    - name: "effort_estimator"
+      description: "Estimate effort using historical data and complexity analysis"
+      
+    - name: "schedule_optimizer"
+      description: "Optimize project schedules considering resources and constraints"
+      
+    - name: "risk_analyzer"
+      description: "Analyze project risks and suggest mitigation strategies"
+
+  monitoring_tools:
+    - name: "progress_tracker"
+      description: "Track task completion and milestone progress"
+      
+    - name: "variance_analyzer"
+      description: "Analyze schedule and budget variances"
+      
+    - name: "trend_predictor"
+      description: "Predict project trends based on current data"
+      
+    - name: "dashboard_generator"
+      description: "Generate project dashboards and reports"
+
+communication:
+  stakeholder_updates:
+    frequency: "weekly"
+    format: "structured_report"
+    recipients: ["sponsors", "steering_committee"]
+    
+  team_updates:
+    frequency: "daily"
+    format: "standup_summary"
+    recipients: ["team_members", "tech_leads"]
+    
+  executive_updates:
+    frequency: "monthly"
+    format: "executive_dashboard"
+    recipients: ["executives", "portfolio_managers"]
+
+templates:
+  project_charter: "/templates/project-management/project-charter.md"
+  wbs_template: "/templates/project-management/work-breakdown-structure.md"
+  status_report: "/templates/project-management/status-report.md"
+  risk_register: "/templates/project-management/risk-register.md"
+
+integration:
+  project_tools:
+    - jira
+    - azure_devops
+    - github_projects
+    - trello
+    
+  communication_tools:
+    - slack
+    - microsoft_teams
+    - email
+    
+  reporting_tools:
+    - powerbi
+    - tableau
+    - grafana
+
+metrics:
+  track:
+    - schedule_performance_index
+    - cost_performance_index
+    - scope_completion_percentage
+    - team_velocity
+    - defect_density
+    - stakeholder_satisfaction
+    
+  thresholds:
+    schedule_variance: 10  # percentage
+    budget_variance: 5     # percentage
+    quality_threshold: 95  # percentage
+
+learning:
+  feedback_collection:
+    - project_retrospectives
+    - stakeholder_surveys
+    - team_feedback
+    
+  continuous_improvement:
+    - process_optimization
+    - template_refinement
+    - workflow_enhancement
