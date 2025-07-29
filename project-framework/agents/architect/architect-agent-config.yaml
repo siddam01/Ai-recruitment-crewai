@@ -1,0 +1,264 @@
+name: "Architecture Agent"
+version: "1.0"
+description: "AI agent responsible for system architecture design, technical decisions, and architectural governance"
+
+agent_type: "architect"
+model_config:
+  primary_model: "claude-3-5-sonnet"
+  fallback_model: "gpt-4-turbo"
+  temperature: 0.2
+  max_tokens: 8000
+
+capabilities:
+  - system_design
+  - technology_selection
+  - architecture_documentation
+  - design_patterns_recommendation
+  - scalability_planning
+  - security_architecture
+  - performance_optimization
+  - technical_debt_analysis
+  - architecture_review
+
+workflows:
+  architecture_design:
+    name: "System Architecture Design Workflow"
+    description: "End-to-end system architecture design process"
+    steps:
+      - name: "requirements_analysis"
+        action: "analyze_architectural_requirements"
+        inputs: ["functional_requirements", "non_functional_requirements", "constraints"]
+        outputs: ["architectural_requirements", "quality_attributes"]
+        
+      - name: "context_analysis"
+        action: "analyze_system_context"
+        inputs: ["business_context", "existing_systems", "integration_points"]
+        outputs: ["context_diagram", "external_dependencies"]
+        
+      - name: "architecture_options"
+        action: "generate_architecture_options"
+        inputs: ["architectural_requirements", "context_diagram"]
+        outputs: ["architecture_alternatives", "trade_off_analysis"]
+        
+      - name: "technology_selection"
+        action: "select_technologies"
+        inputs: ["architecture_alternatives", "team_skills", "constraints"]
+        outputs: ["technology_stack", "selection_rationale"]
+        
+      - name: "detailed_design"
+        action: "create_detailed_design"
+        inputs: ["selected_architecture", "technology_stack"]
+        outputs: ["detailed_architecture", "component_diagrams"]
+
+  architecture_review:
+    name: "Architecture Review Workflow"
+    description: "Systematic review of architectural designs"
+    steps:
+      - name: "design_assessment"
+        action: "assess_architecture_design"
+        inputs: ["architecture_document", "review_criteria"]
+        outputs: ["assessment_results", "compliance_check"]
+        
+      - name: "quality_evaluation"
+        action: "evaluate_quality_attributes"
+        inputs: ["architecture_design", "quality_requirements"]
+        outputs: ["quality_assessment", "gap_analysis"]
+        
+      - name: "risk_identification"
+        action: "identify_architectural_risks"
+        inputs: ["architecture_design", "risk_taxonomy"]
+        outputs: ["architectural_risks", "risk_mitigation"]
+        
+      - name: "improvement_recommendations"
+        action: "recommend_improvements"
+        inputs: ["assessment_results", "gap_analysis", "risks"]
+        outputs: ["improvement_plan", "prioritized_recommendations"]
+
+  technology_evaluation:
+    name: "Technology Evaluation Workflow"
+    description: "Evaluate and select appropriate technologies"
+    steps:
+      - name: "requirement_mapping"
+        action: "map_technology_requirements"
+        inputs: ["technical_requirements", "constraints"]
+        outputs: ["technology_criteria", "evaluation_matrix"]
+        
+      - name: "option_research"
+        action: "research_technology_options"
+        inputs: ["technology_criteria", "market_analysis"]
+        outputs: ["technology_candidates", "feature_comparison"]
+        
+      - name: "proof_of_concept"
+        action: "design_poc_approach"
+        inputs: ["technology_candidates", "evaluation_criteria"]
+        outputs: ["poc_plan", "success_metrics"]
+        
+      - name: "decision_analysis"
+        action: "analyze_technology_decision"
+        inputs: ["poc_results", "evaluation_matrix"]
+        outputs: ["technology_recommendation", "decision_rationale"]
+
+tools:
+  design_tools:
+    - name: "architecture_pattern_matcher"
+      description: "Match requirements to suitable architectural patterns"
+      
+    - name: "technology_recommender"
+      description: "Recommend technologies based on requirements and constraints"
+      
+    - name: "scalability_analyzer"
+      description: "Analyze scalability characteristics and bottlenecks"
+      
+    - name: "security_assessor"
+      description: "Assess security implications of architectural decisions"
+      
+    - name: "performance_modeler"
+      description: "Model performance characteristics of architectural designs"
+
+  documentation_tools:
+    - name: "diagram_generator"
+      description: "Generate architecture diagrams from design specifications"
+      
+    - name: "document_generator"
+      description: "Generate comprehensive architecture documentation"
+      
+    - name: "adr_tracker"
+      description: "Track and manage Architecture Decision Records"
+      
+    - name: "compliance_checker"
+      description: "Check architectural compliance with standards"
+
+architecture_patterns:
+  - name: "microservices"
+    use_cases: ["distributed_systems", "independent_scaling", "team_autonomy"]
+    trade_offs: ["complexity_vs_scalability", "consistency_vs_availability"]
+    
+  - name: "layered_architecture"
+    use_cases: ["traditional_applications", "clear_separation", "maintainability"]
+    trade_offs: ["simplicity_vs_flexibility", "performance_vs_maintainability"]
+    
+  - name: "event_driven"
+    use_cases: ["loose_coupling", "asynchronous_processing", "scalability"]
+    trade_offs: ["complexity_vs_responsiveness", "consistency_vs_performance"]
+    
+  - name: "serverless"
+    use_cases: ["cost_optimization", "auto_scaling", "event_processing"]
+    trade_offs: ["vendor_lock_in_vs_cost", "cold_start_vs_scalability"]
+
+quality_attributes:
+  performance:
+    metrics: ["response_time", "throughput", "resource_utilization"]
+    techniques: ["caching", "load_balancing", "optimization"]
+    
+  scalability:
+    metrics: ["horizontal_scaling", "vertical_scaling", "elasticity"]
+    techniques: ["microservices", "sharding", "auto_scaling"]
+    
+  security:
+    metrics: ["authentication", "authorization", "data_protection"]
+    techniques: ["encryption", "access_control", "security_patterns"]
+    
+  reliability:
+    metrics: ["availability", "fault_tolerance", "recovery_time"]
+    techniques: ["redundancy", "circuit_breakers", "backup_strategies"]
+    
+  maintainability:
+    metrics: ["code_complexity", "coupling", "cohesion"]
+    techniques: ["modular_design", "clean_code", "documentation"]
+
+technology_domains:
+  frontend:
+    categories: ["spa_frameworks", "mobile_frameworks", "desktop_frameworks"]
+    evaluation_criteria: ["learning_curve", "performance", "ecosystem", "team_expertise"]
+    
+  backend:
+    categories: ["web_frameworks", "api_frameworks", "microservice_frameworks"]
+    evaluation_criteria: ["performance", "scalability", "community_support", "security"]
+    
+  database:
+    categories: ["relational", "nosql", "cache", "time_series"]
+    evaluation_criteria: ["consistency", "scalability", "query_capability", "operational_complexity"]
+    
+  infrastructure:
+    categories: ["cloud_platforms", "container_orchestration", "monitoring", "ci_cd"]
+    evaluation_criteria: ["cost", "scalability", "reliability", "vendor_lock_in"]
+
+decision_framework:
+  criteria:
+    - business_alignment
+    - technical_feasibility
+    - team_capabilities
+    - long_term_viability
+    - cost_effectiveness
+    - risk_level
+    
+  scoring_method: "weighted_matrix"
+  
+  decision_types:
+    - architectural_patterns
+    - technology_selection
+    - design_approaches
+    - integration_strategies
+
+compliance:
+  standards:
+    - iso_25010  # Software quality model
+    - togaf      # Enterprise architecture framework
+    - safe       # Scaled agile framework
+    - nist       # Security framework
+    
+  governance:
+    - architecture_review_board
+    - design_standards
+    - technology_radar
+    - technical_debt_management
+
+templates:
+  system_architecture: "/templates/architecture/system-architecture-document.md"
+  technical_design: "/templates/architecture/technical-design-document.md"
+  architecture_decision_record: "/templates/architecture/adr-template.md"
+  technology_evaluation: "/templates/architecture/technology-evaluation.md"
+
+integration:
+  modeling_tools:
+    - draw_io
+    - lucidchart
+    - archimate
+    - plantuml
+    
+  documentation_tools:
+    - confluence
+    - notion
+    - gitbook
+    - markdown
+    
+  code_analysis_tools:
+    - sonarqube
+    - codeclimate
+    - dependency_check
+
+metrics:
+  architecture_quality:
+    - modularity_score
+    - coupling_metrics
+    - complexity_metrics
+    - maintainability_index
+    
+  decision_effectiveness:
+    - implementation_success_rate
+    - performance_achievement
+    - cost_accuracy
+    - timeline_adherence
+
+learning:
+  knowledge_sources:
+    - architecture_conferences
+    - technical_papers
+    - industry_reports
+    - community_forums
+    
+  feedback_loops:
+    - implementation_outcomes
+    - performance_measurements
+    - team_feedback
+    - stakeholder_satisfaction
