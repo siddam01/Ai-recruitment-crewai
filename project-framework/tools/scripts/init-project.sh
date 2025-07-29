@@ -72,15 +72,7 @@ create_directory_structure() {
     
     print_step "Creating project directory structure..."
     
-    mkdir -p "$project_dir"/{
-        docs/{architecture,requirements,planning},
-        src,
-        tests,
-        config,
-        scripts,
-        .agents,
-        .templates
-    }
+    mkdir -p "$project_dir"/{docs/{architecture,requirements,planning},src,tests,config,scripts,.agents,.templates}
     
     print_status "Directory structure created"
 }
